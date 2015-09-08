@@ -44,7 +44,7 @@ gulp.task('scripts', function() {
 
 // Styles build task, concatenates all the files
 gulp.task('styles', function() {
-  gulp.src('site/css/*.css')
+  return gulp.src('site/css/*.css')
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('build/css'));
 });
@@ -55,6 +55,13 @@ gulp.task('images', function() {
     .pipe(imagemin())
     .pipe(gulp.dest('build/img'));
 });
+
+// // Sass compilation
+// gulp.task('sass', function () {
+//   gulp.src('./scss/.scss')
+//     .pipe(sass())
+//     .pipe(gulp.dest('./css'));
+// });
 
 // Watch task
 gulp.task('watch', function() {

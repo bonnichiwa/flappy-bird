@@ -1,1 +1,22 @@
-body {}
+@import "normalize";
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
+@import "components/*";
+@import "patterns/*";
+
+$link-color: #1d5192;
+$hover-link-color: lighten($link-color, 30%);
+
+$background-color: #ececec;
+$background-color-dark: darken($background-color, 14%);
+
+nav {
+  background-color: $background-color-dark;
+  a {
+    color: $link-color;
+    &:hover {
+      color: $hover-link-color;
+    }
+  }
+}
