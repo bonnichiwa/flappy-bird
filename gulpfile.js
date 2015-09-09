@@ -68,6 +68,7 @@ gulp.task('watch', function() {
   gulp.watch('site/js/*.js', ['jshint']);
   gulp.watch(('site/scss/*.scss', 'site/scss/base/*.scss'), ['sass']);
   gulp.watch('site/css/*.css', ['styles']);
+  gulp.watch('site/index.html', ['html']);
 });
 
 // Default task
