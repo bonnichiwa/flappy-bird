@@ -66,11 +66,12 @@ gulp.task('images', function() {
 // Watch task
 gulp.task('watch', function() {
   gulp.watch('site/js/*.js', ['jshint']);
-  gulp.watch('site/scss/*.scss', ['sass']);
+  gulp.watch(('site/scss/*.scss', 'site/scss/base/*.scss'), ['sass']);
+  gulp.watch('site/css/*.css', ['styles']);
 });
 
 // Default task
-gulp.task('default', ['jshint', 'sass', 'watch']);
+gulp.task('default', ['jshint', 'sass', 'watch', 'styles', 'html', 'scripts']);
 
 // Build task
 gulp.task('build', ['jshint', 'sass', 'html', 'scripts', 'styles', 'images']);
