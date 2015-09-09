@@ -84,7 +84,7 @@
     }
 
     @include media ($horizontal-bar-mode) {
-      display: block;
+      display: inline-block;
       text-align: center;
     }
   }
