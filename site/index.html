@@ -7,14 +7,29 @@
     <meta name="description" content="A brief description of your site">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/jquery.min.js"></script>
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
     <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+      $(document).ready(function() {
+        var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
+        $('#js-centered-navigation-menu').removeClass("show");
+
+        menuToggle.on('click', function(e) {
+          e.preventDefault();
+          $('#js-centered-navigation-menu').slideToggle(function(){
+            if($('#js-centered-navigation-menu').is(':hidden')) {
+              $('#js-centered-navigation-menu').removeAttr('style');
+            }
+          });
+        });
+      });
+    </script>
   </head>
 
 <!-- Navigation bar -->
