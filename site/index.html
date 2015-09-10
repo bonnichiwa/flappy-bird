@@ -458,7 +458,10 @@
     <link rel="stylesheet" href="../build/css/styles.css">
 
     <script src="js/jquery.min.js"></script>
-        <script>
+    <script src="https://cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/velocity/1.2.2/velocity.ui.min.js"></script>
+
+    <script>
       $(document).ready(function() {
         var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
         $('#js-centered-navigation-menu').removeClass("show");
@@ -469,9 +472,12 @@
             if($('#js-centered-navigation-menu').is(':hidden')) {
               $('#js-centered-navigation-menu').removeAttr('style');
             }
-          });
+          })
+        })
+        $("#js-centered-navigation-menu").velocity("transition.slideDownBigIn", { duration: 1000 
         });
       });
+
     </script>
 
 
