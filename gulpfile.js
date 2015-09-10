@@ -7,7 +7,6 @@ var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var minifyHTML = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
-var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -50,38 +49,27 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('build/js'));
 });
 
-// Styles build task, concatenates all the files
-gulp.task('styles', function() {
-  return gulp.src('site/css/*.css')
-    .pipe(concat('styles.css'))
-    .pipe(gulp.dest('build/css'));
-});
 
 // Image optimization task
 gulp.task('images', function(cb) {
-    gulp.src(['site/img/*.png','site/img/*.jpg','site/img/*.gif','site/img/*.jpeg']).pipe(imageop({
-        optimizationLevel: 5,
-        progressive: true,
-        interlaced: true
-    })).pipe(gulp.dest('build/img/')).on('end', cb).on('error', cb);
+  gulp.src(['site/img/*.png','site/img/*.jpg','site/img/*.gif','site/img/*.jpeg']).pipe(imageop({
+    optimizationLevel: 5,
+    progressive: true,
+    interlaced: true
+    }))
+  .pipe(gulp.dest('build/img/')).on('end', cb).on('error', cb);
 });
-// // Sass compilation
-// gulp.task('sass', function () {
-//   gulp.src('./scss/.scss')
-//     .pipe(sass())
-//     .pipe(gulp.dest('./css'));
-// });
 
 // Watch task
 gulp.task('watch', function() {
   gulp.watch('site/js/*.js', ['jshint']);
   gulp.watch(('site/scss/*.scss', 'site/scss/base/*.scss', 'site/scss/patterns/*.scss'), ['sass']);
-  gulp.watch('site/css/*.css', ['styles']);
+  gulp.watch('site/css/*.css', ['minify-css']);
   gulp.watch('site/index.html', ['html']);
 });
 
 // Default task
-gulp.task('default', ['jshint', 'sass', 'watch', 'styles', 'html', 'scripts', 'images', 'minify-css']);
+gulp.task('default', ['jshint', 'sass', 'watch', 'html', 'scripts', 'images', 'minify-css']);
 
 // Build task
-gulp.task('build', ['jshint', 'sass', 'html', 'scripts', 'styles', 'images', 'minify-css']);
+gulp.task('build', ['jshint', 'sass', 'html', 'scripts', 'images', 'minify-css']);
