@@ -772,8 +772,8 @@ picture {
   position: relative; }
   .card .card-image {
     overflow: hidden;
-    height: 29em;
-    max-height: 29em;
+    height: 20em;
+    max-height: cover;
     background-color: #F8F2B4; }
     .card .card-image img {
       -webkit-transition: all 0.2s ease-in-out;

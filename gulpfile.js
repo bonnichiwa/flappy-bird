@@ -6,6 +6,7 @@ var imagemin = require('gulp-imagemin');
 var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var minifyHTML = require('gulp-minify-html');
+var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
@@ -30,6 +31,13 @@ gulp.task('html', function() {
   gulp.src('site/index.html')
     .pipe(minifyHTML())
     .pipe(gulp.dest('build/'));
+});
+
+//Minify CSS 
+gulp.task('minify-css', function() {
+  return gulp.src ('site/css/styles.css')
+  .pipe(minifyCss({compatibility: 'ie8'}))
+  .pipe(gulp.dest('build/css'));
 });
 
 // JavaScript build task, removes whitespace and concatenates all files
@@ -72,7 +80,7 @@ gulp.task('watch', function() {
 });
 
 // Default task
-gulp.task('default', ['jshint', 'sass', 'watch', 'styles', 'html', 'scripts', 'images']);
+gulp.task('default', ['jshint', 'sass', 'watch', 'styles', 'html', 'scripts', 'images', 'minify-css']);
 
 // Build task
-gulp.task('build', ['jshint', 'sass', 'html', 'scripts', 'styles', 'images']);
+gulp.task('build', ['jshint', 'sass', 'html', 'scripts', 'styles', 'images', 'minify-css']);

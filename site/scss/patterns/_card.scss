@@ -35,8 +35,8 @@
 
   .card-image {
     overflow: hidden;
-    height: 29em;
-    max-height: 29em;
+    height: 20em;
+    max-height: cover;
     background-color: $card-image-hover-color;
 
     img {
