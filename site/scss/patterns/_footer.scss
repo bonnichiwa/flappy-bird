@@ -27,6 +27,7 @@
 .footer-2 {
   $base-spacing: 1.5em !default;
   $action-color: #477DCA !default;
+  $small-screen: em(400) !default;
   $medium-screen: em(640) !default;
   $large-screen: em(860) !default;
   $footer-background: #7cc8cf;
@@ -92,16 +93,26 @@
       float: right;
     }
 
-    li {
+    
+
+    ul.footer-copyright {
+
+      @include media($large-screen) {
+        margin-right: -7em;
+      }
+
+      li {
       font-size: 0.8em;
+      }
     }
 
     ul.footer-social {
       margin: 1em 0 0 0;
 
-      @include media($large-screen) {
-        float: right;
-        margin-top: 0;
+      @include media($small-screen) {
+        display: inline-block;
+        margin-top: 5em;
+
       }
 
       li {

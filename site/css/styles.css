@@ -772,8 +772,8 @@ picture {
   position: relative; }
   .card .card-image {
     overflow: hidden;
-    height: 500px;
-    max-height: 500px;
+    height: 29em;
+    max-height: 29em;
     background-color: #F8F2B4; }
     .card .card-image img {
       -webkit-transition: all 0.2s ease-in-out;
@@ -877,14 +877,17 @@ picture {
   @media screen and (min-width: 53.75em) {
     .footer-2 .footer-secondary-links {
       float: right; } }
-  .footer-2 .footer-secondary-links li {
+  @media screen and (min-width: 53.75em) {
+    .footer-2 .footer-secondary-links ul.footer-copyright {
+      margin-right: -7em; } }
+  .footer-2 .footer-secondary-links ul.footer-copyright li {
     font-size: 0.8em; }
   .footer-2 .footer-secondary-links ul.footer-social {
     margin: 1em 0 0 0; }
-    @media screen and (min-width: 53.75em) {
+    @media screen and (min-width: 25em) {
       .footer-2 .footer-secondary-links ul.footer-social {
-        float: right;
-        margin-top: 0; } }
+        display: inline-block;
+        margin-top: 5em; } }
     .footer-2 .footer-secondary-links ul.footer-social li {
       font-size: 1em;
       float: left;
