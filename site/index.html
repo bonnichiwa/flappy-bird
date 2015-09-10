@@ -6,14 +6,343 @@
     <title>Flappy Bird Clone Landing Page</title>
     <meta name="description" content="A brief description of your site">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <script src="js/jquery.min.js"></script>
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <style>
+      @charset "UTF-8";
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
-    <link rel="stylesheet" href="css/styles.css">
+      html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0; 
+      }
+
+      header,
+      nav,
+      section {
+        display: block; 
+      }
+
+      a {
+        background-color: transparent; 
+      }
+
+      img {
+        border: 0; 
+      }
+
+      button {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+      }
+
+      button {
+        overflow: visible; 
+      }
+
+
+      button {
+        text-transform: none; 
+      }
+
+
+      button {
+        -webkit-appearance: button;
+        cursor: pointer;
+         }
+
+      button::-moz-focus-inner {
+        border: 0;
+        padding: 0; 
+      }
+
+      html {
+        box-sizing: border-box; 
+      }
+
+      *,
+      *::after,
+      *::before {
+        box-sizing: inherit; 
+      }
+
+      button {
+        appearance: none;
+        background-color: #7ccfc3;
+        border: 0;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+        font-size: 1em;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 600;
+        line-height: 1;
+        margin: 0 auto 5em auto;
+        padding: 0.75em 1.5em;
+        text-decoration: none;
+        transition: background-color 150ms ease;
+        user-select: none;
+        vertical-align: middle;
+        white-space: nowrap; 
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0; 
+      }
+
+      body {
+        color: #333;
+        font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+        font-feature-settings: "kern", "liga", "pnum";
+        font-size: 1em;
+        line-height: 1.5;
+        text-align: center; 
+      }
+
+      h2 {
+        font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+        font-size: 1em;
+        line-height: 1.2;
+        margin: 0 0 0.75em; 
+      }
+
+      p {
+        margin: 0 0 0.75em; 
+      }
+
+      a {
+        color: #7ccfc3;
+        text-decoration: none;
+        transition: color 150ms ease; 
+      }
+
+      img {
+        margin: 0;
+        max-width: 100%; 
+      }
+
+      .centered-navigation {
+        background-color: #7cc8cf;
+        border-bottom: 1px solid #66bfc7;
+        min-height: 60px;
+        width: 100%;
+        z-index: 9999; 
+      }
+      .centered-navigation .mobile-logo {
+        display: inline;
+        float: left;
+        max-height: 60px;
+        padding-left: 1em; 
+      }
+      .centered-navigation .mobile-logo img {
+        max-height: 60px;
+        opacity: .6;
+        padding: .8em 0; 
+      }
+      @media screen and (min-width: 53.75em) {
+        .centered-navigation .mobile-logo {
+          display: none; 
+        } 
+      }
+      .centered-navigation .centered-navigation-mobile-menu {
+        color: rgba(51, 51, 51, 0.7);
+        display: block;
+        float: right;
+        line-height: 60px;
+        margin: 0;
+        padding-right: 1em;
+        text-decoration: none;
+        text-transform: uppercase; 
+      }
+      
+      @media screen and (min-width: 53.75em) {
+        .centered-navigation .centered-navigation-mobile-menu {
+          display: none; 
+        } 
+      }
+      .centered-navigation .centered-navigation-wrapper {
+        max-width: 68em;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 999; 
+      }
+
+      .centered-navigation .centered-navigation-wrapper::after {
+        clear: both;
+        content: "";
+        display: table; 
+      }
+
+      .centered-navigation .centered-navigation-wrapper::after {
+        clear: both;
+        content: "";
+        display: table; 
+      }
+
+      .centered-navigation ul.centered-navigation-menu {
+        -webkit-transform-style: preserve-3d;
+        clear: both;
+        display: none;
+        margin: 0 auto;
+        overflow: visible;
+        padding: 0;
+        width: 100%;
+        z-index: 99999; 
+      }
+      
+      @media screen and (min-width: 53.75em) {
+        .centered-navigation ul.centered-navigation-menu {
+          display: inline-block;
+          text-align: center; 
+        } 
+      }
+      @media screen and (min-width: 53.75em) {
+        .centered-navigation .nav-link:first-child {
+          margin-left: 2.2em; 
+        } 
+      }
+
+      .centered-navigation ul li.nav-link {
+        background: #7cc8cf;
+        display: block;
+        line-height: 60px;
+        overflow: hidden;
+        padding-right: 1em;
+        text-align: right;
+        width: 100%;
+        z-index: 9999; 
+      }
+      .centered-navigation ul li.nav-link a {
+        color: rgba(51, 51, 51, 0.7);
+        display: inline-block;
+        outline: none;
+        text-decoration: none; 
+      }
+      @media screen and (min-width: 53.75em) {
+        .centered-navigation ul li.nav-link {
+          background: transparent;
+          display: inline;
+          line-height: 60px; 
+        }
+        .centered-navigation ul li.nav-link a {
+          padding-right: 1em; 
+        } 
+      }
+
+      .centered-navigation li.logo.nav-link {
+        display: none;
+        line-height: 0; 
+      }
+
+      @media screen and (min-width: 53.75em) {
+        .centered-navigation li.logo.nav-link {
+          display: inline; 
+        } 
+      }
+
+      .centered-navigation .logo img {
+        margin-bottom: -0.66667em;
+        max-height: 2em;
+        opacity: 0.6; 
+      }
+
+      .cards {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-lines: multiple;
+        -moz-box-lines: multiple;
+        box-lines: multiple;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -moz-box-pack: justify;
+        box-pack: justify;
+        -webkit-justify-content: space-between;
+        -moz-justify-content: space-between;
+        -ms-justify-content: space-between;
+        -o-justify-content: space-between;
+        justify-content: space-between;
+        -ms-flex-pack: justify;
+        padding: 4em 6em; 
+      }
+
+      .card {
+        -webkit-flex-basis: 15em;
+        -moz-flex-basis: 15em;
+        flex-basis: 15em;
+        -ms-flex-preferred-size: 15em;
+        -webkit-flex-grow: 1;
+        -moz-flex-grow: 1;
+        flex-grow: 1;
+        -ms-flex-positive: 1;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        background-color: #f7f7f7;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 4px #e6e6e6;
+        cursor: pointer;
+        margin: 0 2em 1.5em 2em;
+        position: relative; 
+      }
+
+      .card .card-image {
+        overflow: hidden;
+        height: 29em;
+        max-height: 29em;
+        background-color: #F8F2B4; 
+      }
+
+      .card .card-image img {
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        width: 100%;
+        opacity: 1; 
+      }
+
+      .card .card-header {
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #ddd;
+        border-radius: 3px 3px 0 0;
+        font-weight: bold;
+        line-height: 1.5em;
+        padding: 0.5em 0.75em; 
+      }
+
+      .card .card-copy {
+        font-size: 0.9em;
+        line-height: 1.5em;
+        padding: 0.75em 0.75em; 
+      }
+
+      .card .card-copy p {
+        margin: 0 0 0.75em; 
+      }
+    </style>
 
     <script>
       $(document).ready(function() {
@@ -32,29 +361,30 @@
     </script>
   </head>
 
-<!-- Navigation bar -->
+<body>
+  <!-- Navigation bar -->
 
-<header class="centered-navigation" role="banner">
-  <div class="centered-navigation-wrapper">
-    <a href="javascript:void(0)" class="mobile-logo">
-      <img src="../build/img/flappybird_logo.png" alt="Logo image">
-    </a>
-    <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" class="centered-navigation-mobile-menu">MENU</a>
-    <nav role="navigation">
-      <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
-        <li class="nav-link"><a href="javascript:void(0)">About</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Testimonials</a></li>
-        <li class="nav-link logo">
-          <a href="javascript:void(0)" class="logo">
-            <img src="../build/img/flappybird_logo.png" alt="Logo image">
-          </a>
-        </li>
-        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Sign up</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <header class="centered-navigation" role="banner">
+    <div class="centered-navigation-wrapper">
+      <a href="javascript:void(0)" class="mobile-logo">
+        <img src="../build/img/flappybird_logo.png" alt="Logo image">
+      </a>
+      <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" class="centered-navigation-mobile-menu">MENU</a>
+      <nav role="navigation">
+        <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
+          <li class="nav-link"><a href="javascript:void(0)">About</a></li>
+          <li class="nav-link"><a href="javascript:void(0)">Testimonials</a></li>
+          <li class="nav-link logo">
+            <a href="javascript:void(0)" class="logo">
+              <img src="../build/img/flappybird_logo.png" alt="Logo image">
+            </a>
+          </li>
+          <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
+          <li class="nav-link"><a href="javascript:void(0)">Sign up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
 
 <!-- <section class="intro">
@@ -139,3 +469,8 @@
       </ul>
     </div>
 </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+
+
+</body>
