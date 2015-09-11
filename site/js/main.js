@@ -14,7 +14,10 @@ $(document).ready(function() {
     });
   });
 
-  $(".card").velocity("transition.slideUpIn", { stagger: 300 });
+  $(".card")
+    .velocity("transition.slideUpIn", { stagger: 250 })
+    .delay(750)
+    .velocity({ opacity: 1 }, 750);
 
   $("button").mousedown(function(){
   $(this)
