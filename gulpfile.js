@@ -41,9 +41,9 @@ gulp.task('minify-css', function() {
 
 // JavaScript build task, removes whitespace and concatenates all files
 gulp.task('scripts', function() {
-  return browserify('./site/js/main.js')
+  return browserify('site/js/main.js')
     .bundle()
-    .pipe(source('.js'))
+    .pipe(source('main.js'))
     .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest('build/js'));
@@ -60,7 +60,7 @@ gulp.task('images', function() {
 // Watch task
 gulp.task('watch', function() {
   gulp.watch('site/js/*.js', ['jshint']);
-  gulp.watch(('site/scss/*.scss', 'site/scss/base/*.scss', 'site/scss/patterns/*.scss'), ['sass']);
+  gulp.watch('site/**/*.scss', ['sass']);
   gulp.watch('site/css/*.css', ['minify-css']);
   gulp.watch('site/index.html', ['html']);
 });

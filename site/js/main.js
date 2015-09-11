@@ -1,6 +1,5 @@
-$(document).ready(function() {
 
-  $("#js-centered-navigation-menu").velocity("transition.slideDownBigIn", { duration: 1000 });
+$(document).ready(function() {
 
   var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
   $('#js-centered-navigation-menu').removeClass("show");
@@ -25,7 +24,3 @@ $(document).ready(function() {
   .velocity("reverse");
   });
 });
-
-
-
-
