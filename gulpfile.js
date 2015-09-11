@@ -2,7 +2,7 @@ var gulp = require('gulp');
 
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
-var imageop = require('gulp-image-optimization');
+var imagemin = require('gulp-imagemin');
 var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var minifyHTML = require('gulp-minify-html');
@@ -51,13 +51,10 @@ gulp.task('scripts', function() {
 
 
 // Image optimization task
-gulp.task('images', function(cb) {
-  gulp.src(['site/img/*.png','site/img/*.jpg','site/img/*.gif','site/img/*.jpeg']).pipe(imageop({
-    optimizationLevel: 5,
-    progressive: true,
-    interlaced: true
-    }))
-  .pipe(gulp.dest('build/img/')).on('end', cb).on('error', cb);
+gulp.task('images', function() {
+  gulp.src('site/img/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('build/img'));
 });
 
 // Watch task
