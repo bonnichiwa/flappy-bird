@@ -726,8 +726,6 @@ picture {
             width: 12em; } }
 
 .cards {
-  /*  @include display(flex);
-  @include flex-wrap(wrap);*/
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   box-pack: justify;
@@ -736,12 +734,13 @@ picture {
   -ms-justify-content: space-between;
   -o-justify-content: space-between;
   justify-content: space-between;
-  -ms-flex-pack: justify;
-  padding: 4em 6em; }
+  -ms-flex-pack: justify; }
+  @media screen and (min-width: 25em) {
+    .cards {
+      width: 20em;
+      margin: 3em auto; } }
 
 .card {
-  /*  @include flex-basis(15em);
-  @include flex-grow(1);*/
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -755,7 +754,7 @@ picture {
   .card .card-image {
     overflow: hidden;
     height: 20em;
-    max-height: cover;
+    max-height: 20em;
     background-color: #F8F2B4; }
     .card .card-image img {
       -webkit-transition: all 0.2s ease-in-out;

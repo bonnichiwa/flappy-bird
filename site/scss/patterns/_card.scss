@@ -1,8 +1,14 @@
 .cards {
-/*  @include display(flex);
-  @include flex-wrap(wrap);*/
+  $small-screen: em(400) !default;
+  $medium-screen: em(640) !default;
+  $large-screen: em(860) !default;
   @include justify-content(space-between);
-  padding: 4em 6em;
+
+  @include media($small-screen) {
+    width: 20em;
+    margin: 3em auto;
+  }
+
 }
 
 .card {
@@ -21,8 +27,6 @@
   $card-image-hover-opacity: 0.7;
   $card-image-hover-color: #F8F2B4;
 
-/*  @include flex-basis(15em);
-  @include flex-grow(1);*/
   @include transition (all 0.2s ease-in-out);
   background-color: $card-background;
   border-radius: $base-border-radius;
@@ -36,7 +40,7 @@
   .card-image {
     overflow: hidden;
     height: 20em;
-    max-height: cover;
+    max-height: 20em;
     background-color: $card-image-hover-color;
 
     img {
