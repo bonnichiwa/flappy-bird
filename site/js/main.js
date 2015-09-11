@@ -5,6 +5,8 @@ $(document).ready(function() {
 
   var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
   $('#js-centered-navigation-menu').removeClass("show");
+
+
   
   menuToggle.on('click', function(e) {
     e.preventDefault();
@@ -13,7 +15,12 @@ $(document).ready(function() {
         $('#js-centered-navigation-menu').removeAttr('style');
       }
     });
+  });
 
+  $("button").mousedown(function(){
+  $(this)
+  .velocity({ scale: "1.5"}, 150, "easeInOut")
+  .velocity("reverse");
   });
 });
 
