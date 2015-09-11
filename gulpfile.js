@@ -43,7 +43,7 @@ gulp.task('minify-css', function() {
 gulp.task('scripts', function() {
   return browserify('./site/js/main.js')
     .bundle()
-    .pipe(source('main.js'))
+    .pipe(source('.js'))
     .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest('build/js'));
