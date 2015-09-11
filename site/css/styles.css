@@ -755,7 +755,7 @@ picture {
     .card-1:last-child, .card-2:last-child, .card-3:last-child {
       margin-right: 0; } }
 
-@media screen and (min-width: 860px) {
+@media screen and (min-width: 920px) {
   .card-1, .card-2, .card-3 {
     float: left;
     display: block;

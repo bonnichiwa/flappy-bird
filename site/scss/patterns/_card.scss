@@ -6,7 +6,7 @@
 .card-1, .card-2, .card-3 {
   $small-screen: new-breakpoint(min-width 400px 6) !default;
   $medium-screen: new-breakpoint(min-width 680px 9) !default;
-  $large-screen: new-breakpoint(min-width 860px 12) !default;
+  $large-screen: new-breakpoint(min-width 920px 12) !default;
 
   @include media($small-screen) {
     @include span-columns(4);
