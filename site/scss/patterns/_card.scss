@@ -1,15 +1,29 @@
 .cards {
-  $small-screen: em(400) !default;
-  $medium-screen: em(640) !default;
-  $large-screen: em(860) !default;
-  @include justify-content(space-between);
+  @include outer-container;
+  padding-bottom: 2em;
+}
+
+.card-1, .card-2, .card-3 {
+  $small-screen: new-breakpoint(min-width 400px 6) !default;
+  $medium-screen: new-breakpoint(min-width 680px 9) !default;
+  $large-screen: new-breakpoint(min-width 860px 12) !default;
 
   @include media($small-screen) {
-    width: 20em;
-    margin: 3em auto;
+    @include span-columns(4);
+    @include shift(1);
   }
 
+  @include media($medium-screen) {
+    @include span-columns(3);
+    @include shift(1);
+  }
+
+  @include media($large-screen) {
+    @include span-columns(3);
+    @include shift(.75);
+  }
 }
+
 
 .card {
   $base-border-color: gainsboro !default;
@@ -33,21 +47,17 @@
   border: $card-border;
   box-shadow: 0 2px 4px darken($base-background-color, 10%);
   cursor: pointer;
-  margin: 0 $card-margin $base-spacing $card-margin;
+  margin-top: 3em;
   position: relative;
 
 
   .card-image {
     overflow: hidden;
-    height: 20em;
-    max-height: 20em;
-    background-color: $card-image-hover-color;
 
     img {
       @include transition (all 0.2s ease-in-out);
       border-top-left-radius: $base-border-radius;
       border-top-right-radius: $base-border-radius;
-      width: 100%;
       opacity: 1;
     }
   }
@@ -65,6 +75,7 @@
   .card-copy {
     font-size: 0.9em;
     line-height: 1.5em;
+    height: 7em;
     padding: ($base-spacing / 2) ($base-spacing / 2);
 
     p {

@@ -726,19 +726,44 @@ picture {
             width: 12em; } }
 
 .cards {
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  -o-justify-content: space-between;
-  justify-content: space-between;
-  -ms-flex-pack: justify; }
-  @media screen and (min-width: 25em) {
-    .cards {
-      width: 20em;
-      margin: 3em auto; } }
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2em; }
+  .cards::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+@media screen and (min-width: 400px) {
+  .card-1, .card-2, .card-3 {
+    float: left;
+    display: block;
+    margin-right: 4.82916%;
+    width: 65.05695%;
+    margin-left: 17.47153%; }
+    .card-1:last-child, .card-2:last-child, .card-3:last-child {
+      margin-right: 0; } }
+
+@media screen and (min-width: 680px) {
+  .card-1, .card-2, .card-3 {
+    float: left;
+    display: block;
+    margin-right: 3.16844%;
+    width: 31.22104%;
+    margin-left: 11.46316%; }
+    .card-1:last-child, .card-2:last-child, .card-3:last-child {
+      margin-right: 0; } }
+
+@media screen and (min-width: 860px) {
+  .card-1, .card-2, .card-3 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    margin-left: 6.39735%; }
+    .card-1:last-child, .card-2:last-child, .card-3:last-child {
+      margin-right: 0; } }
 
 .card {
   -webkit-transition: all 0.2s ease-in-out;
@@ -749,20 +774,16 @@ picture {
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px #e6e6e6;
   cursor: pointer;
-  margin: 0 2em 1.5em 2em;
+  margin-top: 3em;
   position: relative; }
   .card .card-image {
-    overflow: hidden;
-    height: 20em;
-    max-height: 20em;
-    background-color: #F8F2B4; }
+    overflow: hidden; }
     .card .card-image img {
       -webkit-transition: all 0.2s ease-in-out;
       -moz-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
-      width: 100%;
       opacity: 1; }
   .card .card-header {
     -webkit-transition: all 0.2s ease-in-out;
@@ -777,6 +798,7 @@ picture {
   .card .card-copy {
     font-size: 0.9em;
     line-height: 1.5em;
+    height: 7em;
     padding: 0.75em 0.75em; }
     .card .card-copy p {
       margin: 0 0 0.75em; }
