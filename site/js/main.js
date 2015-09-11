@@ -9,5 +9,11 @@ $(document).ready(function() {
         $('#js-centered-navigation-menu').removeAttr('style');
       }
     });
+    // $("#js-centered-navigation-menu").velocity("transition.slideDownBigIn", { duration: 1000 }
+    //   );
   });
 });
+
+
+
+

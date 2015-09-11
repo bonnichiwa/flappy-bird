@@ -726,20 +726,8 @@ picture {
             width: 12em; } }
 
 .cards {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-lines: multiple;
-  -moz-box-lines: multiple;
-  box-lines: multiple;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  /*  @include display(flex);
+  @include flex-wrap(wrap);*/
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   box-pack: justify;
@@ -752,14 +740,8 @@ picture {
   padding: 4em 6em; }
 
 .card {
-  -webkit-flex-basis: 15em;
-  -moz-flex-basis: 15em;
-  flex-basis: 15em;
-  -ms-flex-preferred-size: 15em;
-  -webkit-flex-grow: 1;
-  -moz-flex-grow: 1;
-  flex-grow: 1;
-  -ms-flex-positive: 1;
+  /*  @include flex-basis(15em);
+  @include flex-grow(1);*/
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
